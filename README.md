@@ -36,13 +36,21 @@ This app will be implemented using the following technologies:
 
 ## Implementation Timeline
 
-Phase 1: Create blocks and grid, activating/disabling blocks on click
+### Phase 1: Project Setup
 
-Phase 2: Learn how to use the Howler library
+Setup all necessary Node modules. Create webpack.config.js and package.json. Have the basic board set up.
 
-Phase 3: Add sounds and make it loop
+### Phase 2: Learn how to use the Howler.js library
 
-Phase 4: Add css/effects for blocks
+Explore the Howler library. Build out cells to fill the board. Try to build logic to toggle each cell on click.
+
+### Phase 3: Add sounds and make it loop
+
+Have a functional board to start/play and mute.
+
+### Phase 4: Add css/effects for blocks
+
+Style sound board and controls.
 
 ## Bonus Features
 
