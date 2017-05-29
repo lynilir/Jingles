@@ -2,11 +2,13 @@
 
 ## Background
 
-This project will be a steps music sequencer. It lets users add sounds to the loop. It will be created using JavaScript, jQuery, HTML/CSS, and Howler.js.
+This project will be a music sequencer. It lets users add sounds to the musical sequence. It will be created using JavaScript, jQuery, HTML/CSS, and Howler.js.
 
-## Functionality
+## Functionality & MVP
 
 Users will be able to:
+
+- [ ] Play a loop of music nots
 - [ ] Click on a grid square to toggle notes to add to the loop
 - [ ] Reset the loop
 - [ ] Mute the music
@@ -16,6 +18,8 @@ In addition, this project will include:
 - A production README
 
 ## Design Docs
+
+This app will have a very simple user interface. Simply click on the squares to start.
 
 [Wireframe][wireframe]
 
@@ -32,11 +36,11 @@ This app will be implemented using the following technologies:
 
 ## Implementation Timeline
 
-Phase 1: Create blocks and grid
+Phase 1: Create blocks and grid, activating/disabling blocks on click
 
-Phase 2: Add sounds and make it loop
+Phase 2: Learn how to use the Howler library
 
-Phase 2: Toggling for activating/disabling blocks
+Phase 3: Add sounds and make it loop
 
 Phase 4: Add css/effects for blocks
 
