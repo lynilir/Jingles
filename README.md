@@ -19,7 +19,7 @@ In addition, this project will include:
 
 [Wireframe][wireframe]
 
-[wireframe]: ./main.png
+[wireframe]: ./assets/main.png
 
 ## Architecture and Technologies
 
