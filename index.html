@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="assets/style.css">
+  </head>
+  <body>
+    <div id="grid-container">
+    </div>
+
+    <audio src="bells.wav" type="audio/wav" id="bells">Bells</audio>
+    <audio src="kick.wav" type="audio/wav" id="kick">Kick</audio>
+
+  <script>
+
+    function toggleActive() {
+      this.classList.toggle("active");
+      audio = document.getElementById('kick')
+      audio.play();
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      audio = document.getElementById('kick')
+      let gridContainer = document.getElementById('grid-container');
+      let grid = document.createDocumentFragment();
+      for (i = 0; i < 4; i++){
+        let row = document.createElement("ul");
+        row.setAttribute("class", `row row-${i}`)
+        for (var j = 0; j < 8; j++) {
+          cell = document.createElement("li");
+          cell.setAttribute("class", `col-${i} cell`);
+          cell.onclick=toggleActive;
+          row.appendChild(cell);
+        }
+        grid.appendChild(row);
+      };
+
+      gridContainer.appendChild(grid);
+    })
+
+  </script>
+
+
+  </body>
+</html>
