@@ -1,9 +1,4 @@
-import Setup from './setup';
-
-function toggleActive() {
-  this.classList.toggle("active");
-  let audio = document.getElementById('kick');
-}
+import { createGrid, createAudio, toggleActive } from './setup';
 
 function play() {
   for (var i = 0; i < 8; i++) {
@@ -19,10 +14,7 @@ function play() {
   }
 }
 
-
-
 document.addEventListener("DOMContentLoaded", () => {
-  let grid = Setup.new();
-  grid.createGrid();
-  // createAudio();
+  createGrid();
+  createAudio();
 });
