@@ -9,7 +9,9 @@ function play() {
     cell.classList.toggle("curCol");
     if (cell.classList.contains("active")) {
       let audio = document.getElementById(`sound-${j}`);
-      audio.cloneNode(true).play();
+      if (!audio.muted) {
+        audio.cloneNode(true).play();
+      }
     }
     setTimeout(()=> {
       cell.classList.toggle("curCol");
@@ -17,30 +19,25 @@ function play() {
   }
 }
 
-const muteButton = document.getElementById("mute");
-const audioElements = document.querySelectorAll("audio");
-let isMuted = false;
-
-const muteAll = () => {
-  for (let i = 0; i < audioElements.length; i++) {
-    audioElements[i].muted = true;
-  }
-  isMuted = true;
-};
-const unmuteAll = () => {
-  for (let i = 0; i < audioElements.length; i++) {
-    audioElements[i].muted = false;
-  }
-  isMuted = false;
-};
-muteButton.addEventListener("click", () => {
-  return isMuted ? unmuteAll() : muteAll();
-});
-
 
 document.addEventListener("DOMContentLoaded", () => {
   createGrid();
   createAudio();
+  const muteButton = document.getElementById("mute");
+  const soundEls = document.querySelectorAll("audio");
+  let isMuted = false;
+
+  const muteFunction = (bool) => {
+    for (let i = 0; i < soundEls.length; i++) {
+      soundEls[i].muted = bool;
+    }
+    isMuted = bool;
+  };
+
+  muteButton.addEventListener("click", () => {
+    return isMuted ? muteFunction(false) : muteFunction(true);
+  });
+
   setInterval(() => {
     play();
     curCol = (curCol + 1) % 16;
