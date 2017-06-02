@@ -1,25 +1,20 @@
-html, body, div, span,
-h1, h2, h3, h4, h5, h6,
-del, dfn, em, img, ins, kbd, q, s, samp,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-table, caption, tbody, tfoot, thead, tr, th, td,
-audio {
+html, body, div, h1, input, ul, li, audio {
   margin: 0;
   padding: 0;
   border: 0;
   font-size: 100%;
   font: inherit;
   vertical-align: baseline;
+  font-family: sans-serif;
 }
-/* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section {
-  display: block;
-}
+
 body {
   line-height: 1.5;
+  background: #C1E1DC;
+  display: flex;
+  flex-direction: column;
 }
+
 ol, ul {
   list-style: none;
 }
@@ -29,8 +24,21 @@ ol, ul {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: #C1E1DC;
   height: 600px;
+}
+
+.controls {
+  align-self: center;
+  display: flex;
+  justify-content: space-around;
+  width: 50%;
+  margin: 20px;
+}
+
+.fa{
+  color: #FFEB94;
+  font-size: 30px;
+  border: #FFEB94;
 }
 
 .row {
@@ -48,9 +56,8 @@ ol, ul {
 
 .active {
   background: #FFEB94;
-;
 }
 
 .curCol {
-  background: #FFCCAC;
+  background: rgba(255, 204, 172, 1);
 }

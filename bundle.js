@@ -101,6 +101,23 @@ function play() {
 document.addEventListener("DOMContentLoaded", function () {
   (0, _setup.createGrid)();
   (0, _setup.createAudio)();
+
+  var mouseDown = void 0;
+  document.addEventListener("mousedown", function () {
+    mouseDown = true;
+  });
+  document.addEventListener("mouseup", function () {
+    mouseDown = false;
+  });
+
+  document.querySelectorAll("li").forEach(function (li) {
+    li.addEventListener("mouseover", function () {
+      if (mouseDown) {
+        li.classList.toggle("active");
+      }
+    });
+  });
+
   var muteButton = document.getElementById("mute");
   var soundEls = document.querySelectorAll("audio");
   var isMuted = false;
@@ -151,7 +168,8 @@ var createGrid = exports.createGrid = function createGrid() {
     for (var j = 0; j < 16; j++) {
       var cell = document.createElement("li");
       cell.setAttribute("class", "col-" + j + " cell");
-      cell.onclick = toggleActive;
+      // cell.click = toggleActive;
+
       row.appendChild(cell);
     }
     grid.appendChild(row);
@@ -168,7 +186,6 @@ var createAudio = exports.createAudio = function createAudio() {
 
     var source = document.createElement("source");
     source.setAttribute("src", "./assets/sounds/" + i + ".mp3");
-
     audio.appendChild(source);
     sounds.appendChild(audio);
   }

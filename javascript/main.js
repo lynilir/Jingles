@@ -19,10 +19,26 @@ function play() {
   }
 }
 
-
 document.addEventListener("DOMContentLoaded", () => {
   createGrid();
   createAudio();
+
+  let mouseDown;
+  document.addEventListener("mousedown", () => {
+    mouseDown = true;
+  });
+  document.addEventListener("mouseup", () => {
+    mouseDown = false;
+  });
+
+  document.querySelectorAll("li").forEach((li) => {
+    li.addEventListener("mouseover", () => {
+      if (mouseDown) {
+        li.classList.toggle("active");
+      }
+    });
+  });
+
   const muteButton = document.getElementById("mute");
   const soundEls = document.querySelectorAll("audio");
   let isMuted = false;

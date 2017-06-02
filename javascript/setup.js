@@ -10,7 +10,8 @@ export const createGrid = () => {
       for (var j = 0; j < 16; j++) {
         let cell = document.createElement("li");
         cell.setAttribute("class", `col-${j} cell`);
-        cell.onclick =toggleActive;
+        // cell.click = toggleActive;
+
         row.appendChild(cell);
       }
       grid.appendChild(row);
@@ -27,7 +28,6 @@ export const createAudio = () => {
 
       let source = document.createElement("source");
       source.setAttribute("src", `./assets/sounds/${i}.mp3`);
-
       audio.appendChild(source);
       sounds.appendChild(audio);
     }
