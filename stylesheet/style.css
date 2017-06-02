@@ -13,6 +13,7 @@ body {
   background: #C1E1DC;
   display: flex;
   flex-direction: column;
+  height: 100vh;
 }
 
 ol, ul {
@@ -24,7 +25,14 @@ ol, ul {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 600px;
+  /*height: 600px;*/
+}
+
+.heading {
+  color: #FFEB94;
+  font-size: 35px;
+  align-self: center;
+  margin: 15px;
 }
 
 .controls {
@@ -35,10 +43,14 @@ ol, ul {
   margin: 20px;
 }
 
-.fa{
+.fa {
   color: #FFEB94;
   font-size: 30px;
   border: #FFEB94;
+}
+
+.fa:hover {
+  cursor: pointer;
 }
 
 .row {
@@ -49,15 +61,23 @@ ol, ul {
 .cell {
   margin: 3px;
   border-radius: 5px;
-  width: 30px;
-  height: 30px;
+  width: 28px;
+  height: 28px;
   background: #f0f0f0;
-}
-
-.active {
-  background: #FFEB94;
 }
 
 .curCol {
   background: rgba(255, 204, 172, 1);
+}
+
+.active.curCol {
+  box-shadow: 0px 0px 10px 3px white;
+  border-radius: 100%;
+  opacity: .25;
+  transform: scale(3);
+  transition: all 0.4s;
+}
+
+.active {
+  background: #FFEB94;
 }

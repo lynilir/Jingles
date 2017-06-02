@@ -102,6 +102,13 @@ document.addEventListener("DOMContentLoaded", function () {
   (0, _setup.createGrid)();
   (0, _setup.createAudio)();
 
+  // let slider = document.getElementById('tempo');
+  // let tempo = slider.value;
+  // slider.addEventListener("change", (e) => {
+  //   tempo = 1000 - e.currentTarget.value;
+  //   console.log(tempo);
+  // });
+
   var mouseDown = void 0;
   document.addEventListener("mousedown", function () {
     mouseDown = true;
@@ -123,6 +130,8 @@ document.addEventListener("DOMContentLoaded", function () {
   var isMuted = false;
 
   var muteFunction = function muteFunction(bool) {
+    muteButton.classList.toggle("fa-volume-up");
+    muteButton.classList.toggle("fa-volume-off");
     for (var i = 0; i < soundEls.length; i++) {
       soundEls[i].muted = bool;
     }
@@ -161,14 +170,12 @@ var createGrid = exports.createGrid = function createGrid() {
 
   var gridContainer = document.getElementById('grid-container');
   var grid = document.createDocumentFragment();
-  // needs to iterate through the different types of audio
   for (var i = 0; i < 16; i++) {
     var row = document.createElement("ul");
     row.setAttribute("class", "row row-" + i);
     for (var j = 0; j < 16; j++) {
       var cell = document.createElement("li");
       cell.setAttribute("class", "col-" + j + " cell");
-      // cell.click = toggleActive;
 
       row.appendChild(cell);
     }
@@ -190,10 +197,6 @@ var createAudio = exports.createAudio = function createAudio() {
     sounds.appendChild(audio);
   }
   audioContainer.appendChild(sounds);
-};
-
-var toggleActive = exports.toggleActive = function toggleActive(e) {
-  e.currentTarget.classList.toggle("active");
 };
 
 /***/ })

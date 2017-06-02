@@ -3,14 +3,12 @@ export const createGrid = () => {
 
     let gridContainer = document.getElementById('grid-container');
     let grid = document.createDocumentFragment();
-    // needs to iterate through the different types of audio
     for (let i = 0; i < 16; i++){
       let row = document.createElement("ul");
       row.setAttribute("class", `row row-${i}`);
       for (var j = 0; j < 16; j++) {
         let cell = document.createElement("li");
         cell.setAttribute("class", `col-${j} cell`);
-        // cell.click = toggleActive;
 
         row.appendChild(cell);
       }
@@ -33,7 +31,3 @@ export const createAudio = () => {
     }
     audioContainer.appendChild(sounds);
   };
-
-export const toggleActive = (e) => {
-  e.currentTarget.classList.toggle("active");
-};

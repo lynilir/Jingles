@@ -1,6 +1,5 @@
 import { createGrid, createAudio, toggleActive } from './setup';
 
-
 let curCol = 0;
 function play() {
   let col = document.querySelectorAll(`.col-${curCol}`);
@@ -19,9 +18,18 @@ function play() {
   }
 }
 
+
+
 document.addEventListener("DOMContentLoaded", () => {
   createGrid();
   createAudio();
+
+  // let slider = document.getElementById('tempo');
+  // let tempo = slider.value;
+  // slider.addEventListener("change", (e) => {
+  //   tempo = 1000 - e.currentTarget.value;
+  //   console.log(tempo);
+  // });
 
   let mouseDown;
   document.addEventListener("mousedown", () => {
@@ -44,6 +52,8 @@ document.addEventListener("DOMContentLoaded", () => {
   let isMuted = false;
 
   const muteFunction = (bool) => {
+    muteButton.classList.toggle("fa-volume-up");
+    muteButton.classList.toggle("fa-volume-off");
     for (let i = 0; i < soundEls.length; i++) {
       soundEls[i].muted = bool;
     }
