@@ -116,6 +116,14 @@ document.addEventListener("DOMContentLoaded", function () {
     return isMuted ? muteFunction(false) : muteFunction(true);
   });
 
+  // reset button
+  var resetButton = document.getElementById("reset");
+  resetButton.addEventListener("click", function () {
+    document.querySelectorAll("li").forEach(function (li) {
+      li.classList.remove("active");
+    });
+  });
+
   setInterval(function () {
     play();
     curCol = (curCol + 1) % 16;

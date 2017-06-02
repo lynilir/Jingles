@@ -38,6 +38,14 @@ document.addEventListener("DOMContentLoaded", () => {
     return isMuted ? muteFunction(false) : muteFunction(true);
   });
 
+  // reset button
+  const resetButton = document.getElementById("reset");
+  resetButton.addEventListener("click", () => {
+    document.querySelectorAll("li").forEach((li) => {
+      li.classList.remove("active");
+    });
+  });
+
   setInterval(() => {
     play();
     curCol = (curCol + 1) % 16;
