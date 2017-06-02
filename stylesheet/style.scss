@@ -1,3 +1,4 @@
+
 html, body, div, span,
 h1, h2, h3, h4, h5, h6,
 del, dfn, em, img, ins, kbd, q, s, samp,
@@ -29,8 +30,8 @@ ol, ul {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: gray;
-  height: 500px;
+  background: #C1E1DC;
+  height: 800px;
 }
 
 .row {
@@ -39,13 +40,18 @@ ol, ul {
 }
 
 .cell {
-  margin: 5px;
-  border-radius: 3px;
-  border: 1px solid black;
-  width: 35px;
-  height: 35px;
+  margin: 3px;
+  border-radius: 5px;
+  width: 30px;
+  height: 30px;
+  background: #f0f0f0;
 }
 
 .active {
-  background: blue;
+  background: #FFEB94;
+;
+}
+
+.curCol {
+  background: #FFCCAC;
 }
