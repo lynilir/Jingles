@@ -1,59 +1,49 @@
 # Sound Snippets
 
-## Background
+[Live site][Live]
 
-This project will be a music sequencer. It lets users add sounds to the musical sequence. It will be created using JavaScript, jQuery, HTML/CSS, and Howler.js.
+[Live]: https://lynilir.github.io/sound-snippets/
 
-## Functionality & MVP
+This project is a music sequencer built using JavaScript and CSS. It loops through the notes the user have selected to play a snippet of sound.
 
-Users will be able to:
+## Technologies
 
-- [ ] Play a loop of music nots
-- [ ] Click on a grid square to toggle notes to add to the loop
-- [ ] Reset the loop
-- [ ] Mute the music
+This project utilizes the following technologies:
 
-In addition, this project will include:
-- Effects on active squares
-- A production README
+* Vanilla JavaScript for overall structure and logic
+* HTML/CSS for audio and visual effects
+* Webpack to bundle and serve various scripts
 
-## Design Docs
+## Demo
 
-This app will have a very simple user interface. Simply click on the squares to start.
+Click or hold down the mouse button to "activate" a box. When the slider reaches the box, it will play the notes that were selected. Mute the sounds and reset the grid with the control buttons below the grid.
 
-[Wireframe][wireframe]
+![Screenshot](/assets/docs/jingles.png)
 
-[wireframe]: ./assets/main.png
+## Technical Implementation Details
 
-## Architecture and Technologies
+To minimize the number of DOM interactions, I created a DocumentFragment instead of appending it directly to the DOM to increase load time.
 
-This app will be implemented using the following technologies:
+```js
+export const createGrid = () => {
+    let gridContainer = document.getElementById('grid-container');
+    let grid = document.createDocumentFragment();
+    for (let i = 0; i < 16; i++){
+      let row = document.createElement("ul");
+      row.setAttribute("class", `row row-${i}`);
+      for (var j = 0; j < 16; j++) {
+        let cell = document.createElement("li");
+        cell.setAttribute("class", `col-${j} cell`);
+        row.appendChild(cell);
+      }
+      grid.appendChild(row);
+    }
+    gridContainer.appendChild(grid);
+  };
+```
 
-* Vanilla JavaScript and jQuery for overall structure
-* Howler.js for working with audio
-* HTML/CSS for rendering
-* Webpack to bundle scripts
+## Future Features
 
-## Implementation Timeline
-
-### Phase 1: Project Setup
-
-Setup all necessary Node modules. Create webpack.config.js and package.json. Have the basic board set up.
-
-### Phase 2: Learn how to use the Howler.js library
-
-Explore the Howler library. Build out cells to fill the board. Try to build logic to toggle each cell on click.
-
-### Phase 3: Add sounds and make it loop
-
-Have a functional board to start/play and mute.
-
-### Phase 4: Add css/effects for blocks
-
-Style sound board and controls.
-
-## Bonus Features
-
-- Ability for recording/playback
-- Different/more visual effects
-- Controls for changing the tempo
+- [ ] Different CSS effects
+- [ ] Tempo Slider
+- [ ] Utilizing web audio api to allow user to add effects to the sounds

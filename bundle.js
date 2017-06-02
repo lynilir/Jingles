@@ -176,7 +176,6 @@ var createGrid = exports.createGrid = function createGrid() {
     for (var j = 0; j < 16; j++) {
       var cell = document.createElement("li");
       cell.setAttribute("class", "col-" + j + " cell");
-
       row.appendChild(cell);
     }
     grid.appendChild(row);

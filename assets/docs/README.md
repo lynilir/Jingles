@@ -8,7 +8,7 @@ This project will be a music sequencer. It lets users add sounds to the musical 
 
 Users will be able to:
 
-- [ ] Play a loop of music nots
+- [ ] Play a loop of music notes
 - [ ] Click on a grid square to toggle notes to add to the loop
 - [ ] Reset the loop
 - [ ] Mute the music

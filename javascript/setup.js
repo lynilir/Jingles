@@ -9,7 +9,6 @@ export const createGrid = () => {
       for (var j = 0; j < 16; j++) {
         let cell = document.createElement("li");
         cell.setAttribute("class", `col-${j} cell`);
-
         row.appendChild(cell);
       }
       grid.appendChild(row);

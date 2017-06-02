@@ -18,8 +18,6 @@ function play() {
   }
 }
 
-
-
 document.addEventListener("DOMContentLoaded", () => {
   createGrid();
   createAudio();
