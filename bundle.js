@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 0);
+/******/ 	return __webpack_require__(__webpack_require__.s = 1);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -73,7 +73,49 @@
 "use strict";
 
 
-var _setup = __webpack_require__(1);
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var createGrid = exports.createGrid = function createGrid() {
+
+  var gridContainer = document.getElementById('grid-container');
+  var grid = document.createDocumentFragment();
+  for (var i = 0; i < 16; i++) {
+    var row = document.createElement("ul");
+    row.setAttribute("class", "row row-" + i);
+    for (var j = 0; j < 16; j++) {
+      var cell = document.createElement("li");
+      cell.setAttribute("class", "col-" + j + " cell");
+      row.appendChild(cell);
+    }
+    grid.appendChild(row);
+  }
+  gridContainer.appendChild(grid);
+};
+
+var createAudio = exports.createAudio = function createAudio() {
+  var audioContainer = document.getElementById('audio-container');
+  var sounds = document.createDocumentFragment();
+  for (var i = 0; i < 16; i++) {
+    var audio = document.createElement("audio");
+    audio.setAttribute("id", "sound-" + i);
+
+    var source = document.createElement("source");
+    source.setAttribute("src", "./assets/sounds/" + i + ".mp3");
+    audio.appendChild(source);
+    sounds.appendChild(audio);
+  }
+  audioContainer.appendChild(sounds);
+};
+
+/***/ }),
+/* 1 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _setup = __webpack_require__(0);
 
 var curCol = 0;
 function play() {
@@ -118,6 +160,9 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   document.querySelectorAll("li").forEach(function (li) {
+    li.addEventListener("click", function () {
+      li.classList.toggle("active");
+    });
     li.addEventListener("mouseover", function () {
       if (mouseDown) {
         li.classList.toggle("active");
@@ -155,48 +200,6 @@ document.addEventListener("DOMContentLoaded", function () {
     curCol = (curCol + 1) % 16;
   }, 300);
 });
-
-/***/ }),
-/* 1 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-var createGrid = exports.createGrid = function createGrid() {
-
-  var gridContainer = document.getElementById('grid-container');
-  var grid = document.createDocumentFragment();
-  for (var i = 0; i < 16; i++) {
-    var row = document.createElement("ul");
-    row.setAttribute("class", "row row-" + i);
-    for (var j = 0; j < 16; j++) {
-      var cell = document.createElement("li");
-      cell.setAttribute("class", "col-" + j + " cell");
-      row.appendChild(cell);
-    }
-    grid.appendChild(row);
-  }
-  gridContainer.appendChild(grid);
-};
-
-var createAudio = exports.createAudio = function createAudio() {
-  var audioContainer = document.getElementById('audio-container');
-  var sounds = document.createDocumentFragment();
-  for (var i = 0; i < 16; i++) {
-    var audio = document.createElement("audio");
-    audio.setAttribute("id", "sound-" + i);
-
-    var source = document.createElement("source");
-    source.setAttribute("src", "./assets/sounds/" + i + ".mp3");
-    audio.appendChild(source);
-    sounds.appendChild(audio);
-  }
-  audioContainer.appendChild(sounds);
-};
 
 /***/ })
 /******/ ]);
