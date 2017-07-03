@@ -2,7 +2,7 @@
 
 [Live site][Live]
 
-[Live]: https://lynilir.github.io/sound-snippets/
+[Live]: https://yonglin2.github.io/Jingles//
 
 This project is a music sequencer built using JavaScript and CSS. It loops through the notes the user have selected to play a snippet of sound.
 

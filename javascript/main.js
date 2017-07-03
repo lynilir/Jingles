@@ -38,6 +38,9 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   document.querySelectorAll("li").forEach((li) => {
+    li.addEventListener("click", () => {
+      li.classList.toggle("active");
+    });
     li.addEventListener("mouseover", () => {
       if (mouseDown) {
         li.classList.toggle("active");

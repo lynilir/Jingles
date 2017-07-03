@@ -160,6 +160,9 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   document.querySelectorAll("li").forEach(function (li) {
+    li.addEventListener("click", function () {
+      li.classList.toggle("active");
+    });
     li.addEventListener("mouseover", function () {
       if (mouseDown) {
         li.classList.toggle("active");
